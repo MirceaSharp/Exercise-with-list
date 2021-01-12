@@ -8,7 +8,7 @@ namespace Exercise_with_List
     public partial class Form1 : Form
     {
         List<string> studentList = new List<string>();
-        List<int> points = new List<int>();
+        List<int> pointsList = new List<int>();
         public Form1()
         {
             InitializeComponent();
@@ -21,17 +21,30 @@ namespace Exercise_with_List
 
 
         }
-       private void ReadStudents()
+
+
+        private void btnReadPoints_Click(object sender, EventArgs e)
+        {
+            ReadPoints();
+            ShowPoints();
+        }
+
+
+        private void btnEmpty_Click(object sender, EventArgs e)
+        {
+            txtResult.Clear();
+        }
+        private void ReadStudents()
         {
 
-            if (System.IO.File.Exists("Studenten.txt"))
+            if (System.IO.File.Exists("Students.txt"))
             {
 
-               
-               
-                StreamReader readObject = new StreamReader("Studenten.txt");
+
+
+                StreamReader readObject = new StreamReader("Students.txt");
                 string input = "";
-                
+
 
 
                 while (readObject.EndOfStream != true)
@@ -47,24 +60,57 @@ namespace Exercise_with_List
                 MessageBox.Show("File not found");
             }
         }
-       private void ShowStudents()
+        private void ShowStudents()
         {
             for (int i = 0; i < studentList.Count; i++)
             {
-                txtResult.Text += studentList[i]+ Environment.NewLine;
+                txtResult.Text += studentList[i] + Environment.NewLine;
             }
 
 
         }
 
-        private void btnEmpty_Click(object sender, EventArgs e)
+        private void ReadPoints()
         {
-            txtResult.Clear();
+            if (System.IO.File.Exists("Points.txt"))
+            {
+                StreamReader readObject = new StreamReader("Points.txt");
+                string input = "";
+
+                while (readObject.EndOfStream != true)
+                {
+
+                    input = readObject.ReadLine();
+                    pointsList.Add(Convert.ToInt32(input));
+
+
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("File not found");
+            }
+
+
         }
+        private void ShowPoints()
+        {
+            for (int i = 0; i < pointsList.Count; i++)
+            {
+                txtResult.Text += pointsList[i] + Environment.NewLine;
+            }
+        }
+
+
+
+
 
         private void txtResult_TextChanged(object sender, EventArgs e)
         {
 
         }
+
+
     }
 }

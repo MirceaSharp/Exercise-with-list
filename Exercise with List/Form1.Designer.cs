@@ -52,8 +52,9 @@ namespace Exercise_with_List
             this.btnReadPoints.Name = "btnReadPoints";
             this.btnReadPoints.Size = new System.Drawing.Size(200, 49);
             this.btnReadPoints.TabIndex = 2;
-            this.btnReadPoints.Text = "Identifier \'Read Points.txt + Overview\' ";
+            this.btnReadPoints.Text = "Read Points.txt + Overview";
             this.btnReadPoints.UseVisualStyleBackColor = true;
+            this.btnReadPoints.Click += new System.EventHandler(this.btnReadPoints_Click);
             // 
             // btPass
             // 
