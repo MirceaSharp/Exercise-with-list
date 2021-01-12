@@ -64,6 +64,7 @@ namespace Exercise_with_List
             this.btPass.TabIndex = 3;
             this.btPass.Text = "Passed / Didn`t pass";
             this.btPass.UseVisualStyleBackColor = true;
+            this.btPass.Click += new System.EventHandler(this.btPass_Click);
             // 
             // btnEmpty
             // 

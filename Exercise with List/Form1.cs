@@ -102,7 +102,32 @@ namespace Exercise_with_List
             }
         }
 
+        private void ShowPassedAndNotPassed()
+        {
 
+            for (int i = 0; i < studentList.Count; i++)
+            {
+                if (pointsList[i] >= 50)
+                {
+                   txtResult.Text += studentList[i] + "\t" + pointsList[i] + "\t" + "Passed" + Environment.NewLine;
+                }
+                else
+                {
+                   txtResult.Text += studentList[i] + "\t" + pointsList[i] + "\t" + "Not Passed" + Environment.NewLine;
+                }
+
+            }
+
+
+        }
+        private void btPass_Click(object sender, EventArgs e)
+        {
+
+            ReadStudents();
+            ReadPoints();
+                
+            ShowPassedAndNotPassed();
+        }
 
 
 
@@ -111,6 +136,6 @@ namespace Exercise_with_List
 
         }
 
-
+        
     }
 }
